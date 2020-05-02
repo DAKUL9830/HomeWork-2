@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+
+    
+    <style>
+        body>h1{
+      text-align: center;
+
+        }
+       #Lists{
+           
+            text-align: center;
+            display:flex
+        }
+        .First{
+            
+            margin: 1rem;
+             border: solid 1px black;
+             width: 300px;
+             height:600px
+            
+        }
+       
+        .Second{
+            box-sizing: border-box;
+            margin: 1rem;
+             border: solid 1px black;
+             width: 300px;
+             height:600px
+            
+        }
+        .Third{
+            box-sizing: border-box;
+            margin: 1rem;
+             border: solid 1px black;
+             width: 300px;
+             height:600px
+             
+            
+        }
+       
+        form {
+    display: flex;
+    flex-direction: column;
+    min-width: 250px;
+    width: 50%;
+}
+form > * {
+    margin: 1em;
+}
+
+    </style>
+    </head>
+    <body>
+        <h1>Acme First,Second,Third</h1>
+        <div id='Lists'>
+            <div id='us'></div>
+            <!--<div id='First'>
+                <h1>First</h1>-->
+                <!--<button class="button1"></button>
+                <button class="button1"></button>-->
+           <!-- </div>
+             <div id='Second'>
+                <h1>Second</h1>
+            </div>
+            <div id='Third'>
+                <h1>Third
+                </h1>-->
+            </div>
+            
+
+        </div>
+        <script>
+
+               const Lists = document.querySelector('#Lists')
+               const us =document.querySelector('#us')
+             console.log('div')
+   //const slots=[first,second,third];
+
+    const users=[{id:1,name:'moe'},//slot:'first'},
+                {id:2,name:'larry'},//slot:'second'},
+                {id:3,name:'curly'},//slot:'third'},
+                {id:4,name:'lucy'},//slot:'third',selected:true},
+
+
+            
+      ]
+
+      /*const createUsers = ()=> {
+
+let html = users.map( user => {
+    const div =create('div')
+  return `
+    <div >${ user.name }</div>
+  `;
+}).join('');
+div.innerHTML = html;
+};
+*/
+      
+      
+      const create = (type) => document.createElement(type);
+      const createButtonForForm1 = () => {
+  const submitButton1 = create('button');
+  submitButton1.classList.add("button1")
+  submitButton1.setAttribute(
+    'type',
+    'submit'
+  );
+  submitButton1.innerText = '>';
+
+  return submitButton1;
+}
+const createButtonForForm2 = () => {
+  const submitButton2 = create('button');
+  submitButton2.classList.add("button2")
+  submitButton2.setAttribute(
+    'type',
+    'submit'
+  );
+  submitButton2.innerText = '<';
+
+  return submitButton2;
+}
+
+
+const createButtonForForm3 = () => {
+  const submitButton3 = create('button');
+  submitButton3.classList.add("button3")
+  submitButton3.setAttribute(
+    'type',
+    'submit'
+  );
+  submitButton3.innerText = '>';
+
+  return submitButton3;
+}
+const createButtonForForm4 = () => {
+  const submitButton4 = create('button');
+  submitButton4.classList.add("button4")
+  submitButton4.setAttribute(
+    'type',
+    'submit'
+  );
+  submitButton4.innerText = '<';
+
+  return submitButton4;
+}
+
+const createButtonForForm5 = () => {
+  const submitButton5 = create('button');
+  submitButton5.classList.add("button5")
+  submitButton5.setAttribute(
+    'type',
+    'submit'
+  );
+  submitButton5.innerText = '>';
+
+  return submitButton5;
+}
+const createButtonForForm6 = () => {
+  const submitButton6 = create('button');
+  submitButton6.classList.add("button6")
+  submitButton6.setAttribute(
+    'type',
+    'submit'
+  );
+  submitButton6.innerText = '<';
+
+  return submitButton6;
+}
+//const createUs = () =>{
+        users.forEach(user=>{
+       //const createUsers = () =>{
+     const div =create('div')
+     div.innerText(user.name)
+     users.append(div);
+    // return div
+       // }
+  })
+//}
+  
+
+const createForm1 = () => {
+  const formContainer = create('div');
+  formContainer.classList.add('First');
+
+  const h1 = create('h1');
+  h1.innerText='First';
+
+  
+
+  
+  const submitButton1 = createButtonForForm1();
+  const submitButton2 = createButtonForForm2();
+  //const newUsers = createUs();
+
+ 
+  
+  formContainer.append(h1)
+  formContainer.append(submitButton1);
+  formContainer.append(submitButton2);
+  //formContainer.append(newUsers);
+
+  formContainer.addEventListener('submit', ev => {
+    ev.preventDefault();
+    reset();
+    render();
+  });
+ // formContainer.append(form);
+
+  return formContainer;
+};    
+
+const createForm2 = () => {
+  const formContainer = create('div');
+  formContainer.classList.add('Second');
+
+  const h1 = create('h1');
+  h1.innerText='Second';
+
+  
+
+  
+  const submitButton3 = createButtonForForm1();
+  const submitButton4 = createButtonForForm2();
+
+  formContainer.append(h1)
+  formContainer.append(submitButton3);
+  formContainer.append(submitButton4);
+
+  formContainer.addEventListener('submit', ev => {
+    ev.preventDefault();
+    reset();
+    render();
+  });
+ // formContainer.append(form);
+
+  return formContainer;
+};    
+
+
+const createForm3 = () => {
+  const formContainer = create('div');
+  formContainer.classList.add('Third');
+
+  const h1 = create('h1');
+  h1.innerText='Third';
+
+  
+
+  
+  const submitButton5 = createButtonForForm1();
+  const submitButton6 = createButtonForForm2();
+
+  formContainer.append(h1)
+  formContainer.append(submitButton5);
+  formContainer.append(submitButton6);
+
+  formContainer.addEventListener('submit', ev => {
+    ev.preventDefault();
+    reset();
+    render();
+  });
+ // formContainer.append(form);
+
+  return formContainer;
+};    
+
+//
+const createTodoContainer = () => {
+  const todoContainer = create('div');
+  todoContainer.classList.add('todo_container');
+
+  return todoContainer;
+}
+
+const createTodo = (todo) => {
+  const container = create('div');
+
+  container.innerText = todo.title;
+  if (todo.complete) {
+    container.classList.add('complete');
+  }
+
+  return container;
+}
+
+const todoContainer = createTodoContainer();
+
+Lists.append(createForm1());
+Lists.append(createForm2());
+Lists.append(createForm3());
+
+Lists.append(todoContainer);
+
+const render = () => {
+  console.log(state);
+
+  todoContainer.innerHTML = '';
+
+  state.todos.forEach(todo => {
+    const todoDiv = createTodo(todo);
+
+    todoContainer.append(todoDiv);
+  });
+}
+
+const input = document.querySelector('[name = "input"]');
+const checkbox = document.querySelector('[name = "checkbox"]');
+
+const reset = () => {
+  state.taskTitle = '';
+  state.taskComplete = false;
+  input.value = '';
+  checkbox.checked = false;
+};    
+        </script>
+    </body>
+</html>
